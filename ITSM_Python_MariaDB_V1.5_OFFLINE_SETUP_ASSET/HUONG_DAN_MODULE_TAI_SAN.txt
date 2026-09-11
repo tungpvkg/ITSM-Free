@@ -1,0 +1,17 @@
+HUONG DAN MODULE QUAN LY TAI SAN CNTT
+
+He Thong ITSM - Phat Trien Va Chia Se Mien Phi Boi Pham Viet Tung
+
+1. Dang nhap bang tai khoan Admin hoac Technical.
+2. Chon menu: Tai san CNTT.
+3. Nhan + Them tai san de khai bao thiet bi moi.
+4. Nhap ma tai san, ten, loai, hang/model/serial, don vi/vi tri, IP/MAC neu co.
+5. Chon trang thai va tinh trang thiet bi.
+6. Co the gan ngay nguoi su dung khi tao/sua, hoac vao Chi tiet de Cap phat.
+7. Khi thu hoi, vao Chi tiet va chon Thu hoi ve kho.
+8. Tat ca cap phat/thu hoi/cap nhat deu co lich su tai san.
+9. Dung nut Xuat Excel tai danh sach de xuat toan bo tai san.
+10. Admin va Technical: them/sua/cap phat/thu hoi. Chi Admin duoc xoa tai san.
+
+Trang thai: Trong kho, Dang su dung, Dang sua, Hong, Ngung su dung, Da thanh ly.
+Tinh trang: Tot, Trung binh, Yeu, Hong.

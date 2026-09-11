@@ -1,0 +1,149 @@
+HƯỚNG DẪN CÀI ĐẶT ITSM V1.5 ASSET
+Hệ Thống ITSM - Phát Triển Và Chia Sẽ Miễn Phí Bởi Phạm Việt Tùng
+============================================================
+
+1. CHUẨN BỊ
+
+Giải nén bộ cài ra một thư mục, ví dụ:
+D:\ITSM-TungPV\
+
+Trong CÙNG thư mục với SETUP_ITSM.cmd phải có đủ 2 file:
+- mariadb-12.3.3-winx64.msi
+- python-3-13-5-amd64.exe
+
+Bộ cài hoạt động OFFLINE, không cần Internet.
+
+2. KIỂM TRA BỘ CÀI
+
+Chạy:
+KIEM_TRA_BO_CAI.cmd
+
+Nếu báo đầy đủ file và checksum hợp lệ thì tiếp tục.
+Nếu thiếu MariaDB hoặc Python, copy đúng file cài vào cùng thư mục rồi chạy kiểm tra lại.
+
+3. BẮT ĐẦU CÀI ĐẶT
+
+Chạy:
+SETUP_ITSM.cmd
+
+Bộ cài sẽ tự yêu cầu quyền Administrator.
+
+Mật khẩu bộ cài:
+1234567890
+
+4. MARIADB
+
+- Nếu máy CHƯA có MariaDB:
+  Setup sẽ tự cài MariaDB 12.3.3 từ file MSI local.
+
+- Nếu máy ĐÃ có MariaDB:
+  Setup sẽ hỏi mật khẩu root MariaDB hiện tại.
+
+LƯU Ý:
+Nếu database itsm_db đã tồn tại, bộ cài sẽ KHÔNG tự ý xóa.
+Muốn cài sạch lại phải xác nhận rõ bằng từ khóa XOA hoặc DONDEP theo thông báo trên màn hình.
+Hãy backup database nếu đang có dữ liệu thật cần giữ lại.
+
+5. CHỌN DỮ LIỆU BAN ĐẦU
+
+Setup sẽ hiện:
+[1] DỮ LIỆU SẠCH
+[2] DỮ LIỆU DEMO
+
+Nhấn Enter hoặc nhập 1:
+- Tạo hệ thống sạch.
+- Có danh mục/cấu hình mặc định.
+- Không tạo User, Technical hoặc Ticket mẫu.
+- Nên dùng khi triển khai thật.
+
+Nhập 2:
+- Tạo dữ liệu demo đầy đủ để xem Dashboard/Báo cáo.
+- Technical: tech01, tech02
+- User: user01, user02, user03, user04, user05
+- Mật khẩu chung: Demo@123
+- Có 20 Ticket mẫu, phản hồi, ghi chú nội bộ và Audit Log.
+
+6. TẠO ADMIN ĐẦU TIÊN
+
+Setup sẽ yêu cầu nhập:
+- Họ tên Admin
+- Username Admin (mặc định: admin)
+- Mật khẩu Admin
+- Nhập lại mật khẩu Admin
+
+Mật khẩu Admin tối thiểu 8 ký tự.
+Admin này do người cài tự tạo, không có mật khẩu Admin mặc định trong source.
+
+7. SAU KHI CÀI XONG
+
+Thông số mặc định:
+- Thư mục ứng dụng: C:\ITSMService
+- Database: itsm_db
+- DB user ứng dụng: itsm_app
+- Web port: 8088
+
+Truy cập trên chính máy cài:
+http://127.0.0.1:8088
+
+Truy cập từ máy khác trong LAN:
+http://IP-MAY-CAI:8088
+
+Ví dụ máy ITSM có IP 10.10.20.19:
+http://10.10.20.19:8088
+
+Setup tự tạo shortcut "ITSM" trên Desktop và mở Windows Firewall TCP/8088 cho mạng Domain/Private.
+
+8. KHỞI ĐỘNG LẠI ITSM
+
+Sau khi restart Windows hoặc khi ITSM chưa chạy:
+- Double-click shortcut ITSM trên Desktop.
+
+Hoặc chạy trực tiếp:
+C:\ITSMService\run_windows.vbs
+
+ITSM hiện chạy dạng ứng dụng nền, chưa được cài thành Windows Service tự khởi động cùng Windows.
+
+9. THÔNG TIN QUẢN TRỊ
+
+Sau khi cài, Setup lưu thông tin cấu hình quản trị trong thư mục dữ liệu của bộ cài/hệ thống.
+Không chia sẻ file chứa DB App Password hoặc MariaDB root password cho người không có quyền quản trị.
+
+10. KHUYẾN NGHỊ KHI ĐƯA VÀO DÙNG THẬT
+
+- Chọn DỮ LIỆU SẠCH.
+- Nếu đã thử DỮ LIỆU DEMO, nên cài sạch lại trước khi vận hành chính thức.
+- Backup MariaDB định kỳ.
+- Không public trực tiếp port 8088 ra Internet.
+- Nếu cần truy cập từ ngoài, nên đặt sau VPN hoặc reverse proxy HTTPS.
+
+TÓM TẮT CÀI NHANH
+
+1. Giải nén.
+2. Copy mariadb-12.3.3-winx64.msi và python-3-13-5-amd64.exe vào cùng SETUP_ITSM.cmd.
+3. Chạy KIEM_TRA_BO_CAI.cmd.
+4. Chạy SETUP_ITSM.cmd bằng Administrator.
+5. Nhập mật khẩu: 1234567890
+6. Chọn 1 = sạch hoặc 2 = demo.
+7. Tạo Admin.
+8. Mở http://127.0.0.1:8088
+
+============================================================
+Hệ Thống ITSM - Phát Triển Và Chia Sẽ Miễn Phí Bởi Phạm Việt Tùng
+
+
+============================================================
+MODULE QUAN LY TAI SAN CNTT
+============================================================
+Sau khi dang nhap bang Admin hoac Technical, chon menu "Tai san CNTT".
+
+Chuc nang chinh:
+- Them, sua, tim kiem va loc tai san CNTT.
+- Quan ly ma tai san, loai thiet bi, hang/model/serial, cong ty, phong ban, vi tri.
+- Quan ly IP, MAC, trang thai, tinh trang, nguoi su dung.
+- Theo doi ngay mua, bao hanh, gia tri, nha cung cap va ngay audit.
+- Cap phat / thu hoi tai san va luu lich su bien dong.
+- Xuat danh sach tai san ra Excel.
+- Admin va Technical duoc them/sua/cap phat/thu hoi.
+- Chi Admin duoc xoa tai san.
+
+Neu cai che do DU LIEU DEMO, he thong tao them 15 tai san CNTT mau.

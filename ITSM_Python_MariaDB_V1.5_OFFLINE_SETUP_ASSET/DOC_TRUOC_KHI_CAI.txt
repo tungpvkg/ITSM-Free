@@ -1,0 +1,11 @@
+DOC TRUOC KHI CAI ITSM V1.5 ASSET
+
+- Bo Setup khong can Internet.
+- Bat buoc dat MariaDB MSI va Python EXE cung thu muc SETUP_ITSM.cmd.
+- Neu may da co MariaDB, Setup se hoi mat khau root hien tai.
+- Neu itsm_db da ton tai, Setup se yeu cau xac nhan ro rang truoc khi xoa de cai sach.
+- Setup cho chon DU LIEU SACH hoac DU LIEU DEMO.
+- DU LIEU DEMO tao tai khoan tech01/tech02/user01..user05, password Demo@123 va 20 ticket mau.
+- Admin dau tien khong duoc hard-code; nguoi cai phai tu tao trong qua trinh Setup.
+- Khong dung bo cai tren MariaDB dang chua du lieu quan trong neu khong biet mat khau/root hoac khong co backup.
+- Web port mac dinh: 8088.
